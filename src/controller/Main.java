@@ -7,11 +7,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 
 /**
- * 
  * @author Nadim Mahmud
- *
  */
-
 
 public class Main extends Application {
 	@Override

@@ -4,6 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import model.Functions;
 
 public class Controller {
 
@@ -158,6 +159,18 @@ public class Controller {
     	
     	clear.setOnAction((event)->{
     		window.setText("");
+    	});
+    	
+    	factorial.setOnAction((event)->{
+    		long number = (long) Double.parseDouble(window.getText());
+    		if(number>20) {
+    			window.setText("Math Error!");
+    		}
+    		else {
+	    		number = Functions.factorial(number);
+	    		String str = Long.toString(number);
+	    		window.setText(str);
+    		}
     	});
 	}
 }
