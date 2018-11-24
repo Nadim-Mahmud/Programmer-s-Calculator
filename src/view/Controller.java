@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import model.Functions;
+import model.Utility;
 
 public class Controller {
 
@@ -162,14 +163,20 @@ public class Controller {
     	});
     	
     	factorial.setOnAction((event)->{
-    		long number = (long) Double.parseDouble(window.getText());
-    		if(number>20) {
-    			window.setText("Math Error!");
+    		
+    		if(!Utility.isValidExpression(window.getText())){
+    			window.setText("Syntax Error!");
     		}
     		else {
-	    		number = Functions.factorial(number);
-	    		String str = Long.toString(number);
-	    		window.setText(str);
+	    		long number = (long) Double.parseDouble(window.getText());
+	    		if(number>20) {
+	    			window.setText("Math Error!");
+	    		}
+	    		else {
+		    		number = Functions.factorial(number);
+		    		String str = Long.toString(number);
+		    		window.setText(str);
+	    		}
     		}
     	});
 	}
