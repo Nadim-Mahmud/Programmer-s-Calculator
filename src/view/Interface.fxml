@@ -67,19 +67,19 @@
                               <Font size="13.0" />
                            </font>
                         </Button>
-                        <Button fx:id="memory" mnemonicParsing="false" prefWidth="69.0" text="&lt;" textAlignment="CENTER" GridPane.columnIndex="1">
+                        <Button fx:id="firstBracket" mnemonicParsing="false" onAction="#initialize" prefWidth="69.0" text="(" textAlignment="CENTER" GridPane.columnIndex="1">
                            <font>
                               <Font name="System Bold" size="13.0" />
                            </font>
                         </Button>
-                        <Button fx:id="backspace" mnemonicParsing="false" prefWidth="69.0" text="&gt;" textAlignment="CENTER" GridPane.columnIndex="2">
+                        <Button fx:id="secondBracket" mnemonicParsing="false" onAction="#initialize" prefWidth="69.0" text=")" textAlignment="CENTER" GridPane.columnIndex="2">
                            <font>
                               <Font name="System Bold" size="13.0" />
                            </font>
                         </Button>
-                        <Button fx:id="clear" mnemonicParsing="false" prefWidth="69.0" text="AC" textAlignment="CENTER" textFill="#ff0909" GridPane.columnIndex="3">
+                        <Button fx:id="clear" mnemonicParsing="false" prefWidth="69.0" text="Clear" textAlignment="CENTER" textFill="#ff0909" GridPane.columnIndex="3">
                            <font>
-                              <Font name="System Bold" size="13.0" />
+                              <Font size="13.0" />
                            </font>
                         </Button>
                         <Button fx:id="plus" layoutX="229.0" layoutY="15.0" mnemonicParsing="false" prefWidth="69.0" text="+" textAlignment="CENTER" GridPane.columnIndex="3" GridPane.rowIndex="1">

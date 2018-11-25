@@ -13,8 +13,8 @@ public class ExpressionEvaluation {
 	 * @param ch
 	 */
 	public static void postfixEvaluation(char ch) {	
-		double tmp = 1,val1,val2;
-		val2 = st.pop();
+		double tmp = 1,val1,val2=0;
+		if(st.size()>=2) val2 = st.pop();
 		val1 = st.pop();
 		switch(ch) {
 			case '+' : tmp = val1+val2;
@@ -65,7 +65,7 @@ public class ExpressionEvaluation {
 							if(i>=exp.length()) break;
 							c = exp.charAt(i);
 						}
-						System.out.println(pw);
+						//System.out.println(pw);
 						db = Math.pow(db,pw);
 						break;
 					}

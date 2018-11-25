@@ -82,6 +82,12 @@ public class Controller {
     @FXML
     private Button equals;
     
+    @FXML
+    private Button firstBracket;
+
+    @FXML
+    private Button secondBracket;
+    
     private String data ;
     
     /**
@@ -158,9 +164,39 @@ public class Controller {
     		window.appendText("/");
     	});
     	
+    	power.setOnAction((event)->{
+    		window.appendText("^");
+    	});
     	
+    	firstBracket.setOnAction((event)->{
+    		window.appendText("(");
+    	});
+    	
+    	secondBracket.setOnAction((event)->{
+    		window.appendText(")");
+    	});
     	clear.setOnAction((event)->{
     		window.setText("");
+    	});
+    	
+    	log.setOnAction((event)->{
+    		if(!Utility.isValidExpression(window.getText())){
+    			window.setText("Syntax Error!");
+    		}
+    		else {
+    			double number = Double.parseDouble(window.getText());
+    			window.setText(Utility.doubleToInt(Math.log10(number)+""));
+    		}
+    	});
+    	
+    	sqroot.setOnAction((event)->{
+    		if(!Utility.isValidExpression(window.getText())){
+    			window.setText("Syntax Error!");
+    		}
+    		else {
+    			double number = Double.parseDouble(window.getText());
+    			window.setText(Utility.doubleToInt(Math.sqrt(number)+""));
+    		}
     	});
     	
     	factorial.setOnAction((event)->{
@@ -170,14 +206,8 @@ public class Controller {
     		}
     		else {
 	    		long number = (long) Double.parseDouble(window.getText());
-	    		if(number>20) {
-	    			window.setText("Math Error!");
-	    		}
-	    		else {
-		    		number = Functions.factorial(number);
-		    		String str = Long.toString(number);
-		    		window.setText(str);
-	    		}
+		    	if(number<=10000) window.setText(Functions.bigFactorial(number));
+		    	else window.setText("Math Error!");
     		}
     	});
     	

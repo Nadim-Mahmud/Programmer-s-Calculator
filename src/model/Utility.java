@@ -9,6 +9,10 @@ import java.util.Stack;
 
 public class Utility {
 	
+	/**
+	 * @param str number
+	 * @return if the number is integer retunrn nuber after cutting off last zeros 
+	 */
 	public static String doubleToInt(String str) {
 		String result = "";
 		boolean flag = false;
@@ -98,7 +102,7 @@ public class Utility {
 			char ch = str.charAt(i);
 			
 			//checking for invalid charecter
-			if(!isBracket(ch)&&!isOperator(ch)&&!isDigit(ch)&&ch!='.'&&ch!='E') return false;
+			if(!isBracket(ch)&&!isOperator(ch)&&!isDigit(ch)&&ch!='.'&&ch!='E'&&ch!='!') return false;
 			
 			//checking for blank space
 			if(ch==' ') return false;
