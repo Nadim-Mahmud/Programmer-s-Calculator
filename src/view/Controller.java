@@ -4,13 +4,14 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import model.ExpressionEvaluation;
 import model.Functions;
 import model.Utility;
 
 public class Controller {
 
-	 @FXML
-	  private TextField window;
+	@FXML
+    private TextField window;
 	
 	@FXML
     private Button seven;
@@ -79,7 +80,7 @@ public class Controller {
     private Button sqroot;
 
     @FXML
-    private Button equalsTwo;
+    private Button equals;
     
     private String data ;
     
@@ -177,6 +178,23 @@ public class Controller {
 		    		String str = Long.toString(number);
 		    		window.setText(str);
 	    		}
+    		}
+    	});
+    	
+    	equals.setOnAction((event)->{
+    		String str = window.getText();
+    		Double data = null; 
+    		if(Utility.isValidExpression(str)) {
+    			data = ExpressionEvaluation.evaluation(str);
+	    		if(data!=null) {
+	    			window.setText(Utility.doubleToInt(Double.toString(data)));
+	    		}
+	    		else {
+	    			window.setText("Error !");
+	    		}
+    		}
+    		else {
+    			window.setText("Syntax Error !");
     		}
     	});
 	}

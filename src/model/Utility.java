@@ -9,6 +9,20 @@ import java.util.Stack;
 
 public class Utility {
 	
+	public static String doubleToInt(String str) {
+		String result = "";
+		boolean flag = false;
+		for(int i=0;i<str.length();i++) {
+			if(str.charAt(i)=='.') {
+				flag = true;
+				
+			}
+			else if(!flag)result += str.charAt(i);
+			else if(flag&&(str.charAt(i)!='0')) return str;
+		}
+		return result;
+	}
+	
 	public static boolean isBracketStarting(char ch) {
 		
 		if(ch=='('||ch=='{'||ch=='[') return true;
@@ -32,9 +46,32 @@ public class Utility {
 		return false;
 	}
 	
-	private static boolean isDigit(char ch) {
+	public static boolean isDigit(char ch) {
 		if(ch>='0'&&ch<='9') return true;
 		return false;
+	}
+	
+	/**
+	 * 
+	 * @param ch
+	 * @return precidence of operator
+	 */
+	public static int Prec(char ch){
+		switch (ch) {
+			case '+':
+			case '-':
+				return 1;
+	
+			case '*':
+			case '/':
+				return 2;
+			case '%':
+			case '!':
+				return 3;
+			case '^':
+				return 4;
+		}
+		return -1;
 	}
 	
 	public static char ending(char ch) {
@@ -61,7 +98,7 @@ public class Utility {
 			char ch = str.charAt(i);
 			
 			//checking for invalid charecter
-			if(!isBracket(ch)&&!isOperator(ch)&&!isDigit(ch)&&ch!='.') return false;
+			if(!isBracket(ch)&&!isOperator(ch)&&!isDigit(ch)&&ch!='.'&&ch!='E') return false;
 			
 			//checking for blank space
 			if(ch==' ') return false;
